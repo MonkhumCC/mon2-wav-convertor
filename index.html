@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+   <title>Mon 2 : Soundscape Machine : WAV Convertor </title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.ico" rel="icon">
+  <link href="assets/img/favicon.ico" rel="apple-touch-icon">
+  <!-- Google Fonts -->
+
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+    <!-- FilePond CSS -->
+    <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+
+  <!-- ======= mon Section ======= -->
+  <section id="mon" class="sjustify-content-center">
+    <div class="container" data-aos="zoom-in" data-aos-delay="100">
+     
+      <h1><a href="#" class="instagram"><i class="bx bx-transfer-alt"></i></a> MON2 WAV Convertor</h1>
+      <h6>.:: website for converting wav files to .bin to flash for (o) MON 2 : SOUNDSCAPE MACHINE ::. fw 1.3 </h6>
+      <br>
+<!-- ======================= add file ================= -->
+
+    <div >
+      <div  style="padding: 10px;">
+        <div class="filepond" id="filepond"></div><br>
+        <div id="fileDetails" class="alert alert-primary" role="alert"></div><br>
+    
+        <div class="mb-2">Progress</div>
+        <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="25" aria-valuemin="0"
+            aria-valuemax="100">
+            <div class="progress-bar" id="progress-bar" style="width: 0%"></div>
+        </div>
+        <div id="fileSize" class="text-success mt-1"></div>
+        <!-- เพิ่มส่วนนี้เพื่อแสดงตำแหน่ง offset 12 ตัว -->
+        <!-- <div id="binHeaderDetails" class="alert alert-info" role="alert"></div><br> -->
+ <br>
+        <h5><a id="downloadLink" style="display: none;" class="button button1"> 🎤 Download mon2wav.bin </a></h5>
+      
+       
+      </div>
+    </div>
+
+
+
+
+ <!-- ================================ end add file ===================== -->
+
+ <div>
+  <br><br>
+  <h2>  Steps to flash audio files into mon2
+  </h2>
+  <h6>1. go to website <a
+    href="https://espressif.github.io/esptool-js/"> https://espressif.github.io/esptool-js</a> <br><br>
+    <img src="assets/img/buadrate.png" alt="mon2 buadrate"> <br><br>
+      2. Select Baudrate: to 115200 and click the Connect button. <br><br>
+      3. Select the comport for MON2 and click the Connect button. <br><br>
+      <img src="assets/img/address.png" alt="mon2 wav address"> <br><br>
+      4. Set the flash address to 0x110000 and select the prepared mon2wav.bin file. <br><br>
+      5. Press the Program button and wait until the flashing process is finished. <br><br>
+      ** Please press and hold button B2 before turning on the machine. until starting to flash the program. **<br><br>
+      ** go to website <a
+      href="https://monkhumcc.github.io/mon2-flash-tool/"> monkhumcc.github.io/mon2-flash-tool </a>  to update the firmware 1.3 or higher.
+    </h6>
+  
+
+
+ </div>
+
+
+      <div>
+        <!-- <script type="module" src="https://unpkg.com/esp-web-tools@7.3.1/dist/web/install-button.js?module">
+        </script>
+          <esp-web-install-button id="installButton" manifest="assets/flash/manifest.json"></esp-web-install-button> -->
+          <br>
+          <span> <br> NOTE: <br>
+            Make sure to close anything using your devices com port (e.g. Serial monitor). <br>  Install the chip driver (CH9102F CH34XSER) before loading the program for the first time.</span>
+
+      </div>
+      <span><br></span>
+                <div>
+
+                  
+                  <a
+                      href="https://learn.adafruit.com/how-to-install-drivers-for-wch-usb-to-serial-chips-ch9102f-ch9102/windows-driver-installation"> - Windows
+                      Driver Installation</a> <br>
+                  <a
+                      href="https://learn.adafruit.com/how-to-install-drivers-for-wch-usb-to-serial-chips-ch9102f-ch9102/mac-driver-installation"> - Mac
+                      Driver Installation</a>
+              </div>
+            <div id="notSupported" style="display: none;">
+                Your browser does not support the Web Serial API. Try Chrome
+            </div>
+
+          <script>
+            if (navigator.serial) {
+                document.getElementById("notSupported").style.display = 'none';
+                // document.getElementById("main").style.display = 'block';
+            } else {
+                document.getElementById("notSupported").style.display = 'block';
+                // document.getElementById("main").style.display = 'none';
+            }
+          </script>
+
+   </div>
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <!-- FilePond JavaScript -->
+    <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+    <!-- FilePond File Validate Type Plugin JavaScript -->
+    <script
+        src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
+
+    <script>
+
+        // Global Variables
+        let fileOffsets = [];
+        let fileNames = [];
+        let progress = 0;
+        let uploadedFiles = 0;
+        // let binArray = new Int16Array();
+        let pcmData = new Int16Array();
+        const MAX_SIZE_MB = 4;
+
+        document.addEventListener('DOMContentLoaded', function () {
+            FilePond.registerPlugin(FilePondPluginFileValidateType);
+
+            const maxFiles = 12;
+            let uploadedFiles = 0;
+            let progress = 0;
+            const uploadedFileNames = new Set(); // เก็บ track ชื่อไฟล์ที่เพิ่มเข้ามา
+
+            const pond = FilePond.create(document.getElementById('filepond'), {
+                acceptedFileTypes: ['audio/wav'],
+                labelIdle: `Drag & Drop your WAV files or <span class="filepond--label-action">Browse</span> (Max ${maxFiles} files)`,
+                allowMultiple: true,
+                allowMultipleOnOpen: true,
+                instantUpload: true,
+                maxFiles: null,
+                allowReorder: false,
+                allowDuplicates: false,
+                allowRemove: false,
+            });
+
+            pond.on('addfile', (error, file) => {
+                if (!error) {
+                    const filename = file.file.name;
+                    if (uploadedFileNames.has(file.file.name)) {
+                        // ไฟล์นี้ถูกอัปโหลดไปแล้ว
+                        alert('ไฟล์ ' + filename + ' ถูกอัปโหลดไปแล้ว');
+                        pond.removeFile(file.id);
+                        return;
+                    }
+
+                    resetGlobalVariables();
+                    uploadedFileNames.add(file.file.name);
+
+                    uploadedFiles++;
+                    console.log(`${uploadedFiles}`);
+                    const remainingFiles = maxFiles - uploadedFiles;
+                    pond.setOptions({
+                        labelIdle: `Drag & Drop your WAV files or <span class="filepond--label-action">Browse</span> (Max ${maxFiles} files, ${remainingFiles} files remaining)`,
+                    });
+
+                    convertSelectedFileToArrayBuffer(file.file).then(arrayBuffer => {
+                        const files = pond.getFiles().map(file => file.file);
+                        processFile(0, files, [], 0);
+                    });
+                }
+            });
+
+        });
+
+
+        async function calculateStartOffset(file, files) {
+            let totalSize = 0;
+            const promises = [];
+            let found = false;
+
+            for (let i = 0; i < files.length; i++) {
+                const arrayBuffer = await readFileAsArrayBuffer(files[i]);
+
+                promises.push(
+                    new Promise((resolve, reject) => {
+                        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                        audioContext.decodeAudioData(arrayBuffer, (tempBuffer) => {
+                            if (files[i] === file) {
+                                found = true;
+                            }
+
+                            if (!found) {
+                                totalSize += tempBuffer.length;
+                            }
+
+                            resolve();
+                        }, reject);
+                    })
+                );
+            }
+
+            return Promise.all(promises).then(() => totalSize);
+        }
+
+        function readFileAsArrayBuffer(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    resolve(e.target.result);
+                };
+                reader.onerror = reject;
+                reader.readAsArrayBuffer(file);
+            });
+        }
+
+        async function calculateBitsPerSample(file) {
+            const arrayBuffer = await readFileAsArrayBuffer(file);
+            const view = new DataView(arrayBuffer);
+
+            // แปลงจาก 32 บิตเป็น 16 บิต
+            const bitsPerSample = 16;
+
+            return bitsPerSample;
+        }
+
+        // ตรวจสอบว่าฟังก์ชัน displayFileDetails ถูกนิยาม
+        if (typeof displayFileDetails === 'undefined') {
+            console.error('displayFileDetails is not defined.');
+        }
+
+        const displayedFiles = new Set();
+        let num = 0;
+        let a0 = 0;
+        let a0c = 0;
+        let a1 = 0;
+        let a2 = 0;
+        let a3 = 0;
+        let a4 = 0;
+        let a5 = 0;
+        let a6 = 0;
+        let a7 = 0;
+        let a8 = 0;
+        let a9 = 0;
+        let a10 = 0;
+        let a11 = 0;
+        let a12 = 0;
+
+        let a1c = 0;
+        let a2c = 0;
+        let a3c = 0;
+        let a4c = 0;
+        let a5c = 0;
+        let a6c = 0;
+        let a7c = 0;
+        let a8c = 0;
+        let a9c = 0;
+        let a10c = 0;
+        let a11c = 0;
+        let a12c = 0;
+        function displayFileDetails(file, buffer, startOffset, endOffset, bitsPerSample) {
+            const detailsContainer = document.getElementById('fileDetails');
+            const channels = buffer.numberOfChannels;
+            const sampleRate = buffer.sampleRate;
+            const duration = buffer.duration;
+            const fileKey = `${file.name}-${channels}-${sampleRate}-${bitsPerSample}-${duration}`;
+            let array32BitAddress = endOffset; // Convert byte offset to 32-bit address
+
+            if (!displayedFiles.has(fileKey)) {
+                num++;
+                a12 += array32BitAddress;
+                switch (num) {
+
+                    case 1:
+                        a0 = array32BitAddress;
+                        a0c = array32BitAddress;
+                        break;
+                    case 2:
+                        a1 = a0 + 1;
+                        a0 += array32BitAddress;
+                        break;
+                    case 3:
+                        a2 = a0 + 1;
+                        a0 += array32BitAddress;
+                        break;
+                    case 4:
+                        a3 = a0 + 1;
+                        a0 += array32BitAddress;
+                        break;
+                    case 5:
+                        a4 = a0 + 1;
+                        a0 += array32BitAddress;
+                        break;
+                    case 6:
+                        a5 = a0 + 1;
+                        a0 += array32BitAddress;
+                        break;
+                    case 7:
+                        a6 = a0 + 1;
+                        a0 += array32BitAddress;
+                        break;
+                    case 8:
+                        a7 = a0 + 1;
+                        a0 += array32BitAddress;
+                        break;
+                    case 9:
+                        a8 = a0 + 1;
+                        a0 += array32BitAddress;
+                        break;
+                    case 10:
+                        a9 = a0 + 1;
+                        a0 += array32BitAddress;
+                        break;
+                    case 11:
+                        a10 = a0 + 1;
+                        a0 += array32BitAddress;
+                        break;
+                    case 12:
+                        a11 = a0 + 1;
+                        a0 += array32BitAddress;
+                        break;
+                    default:
+                    // code block
+                }
+
+
+                const spanElement = document.createElement('span');
+
+
+                spanElement.innerHTML = `${num}) ${file.name} : ${duration.toFixed(2)} seconds<br>`;
+
+                // spanElement.innerHTML = `${num}) ${file.name} - ${channels} Channel(s), ${sampleRate} Hz, ${bitsPerSample} bits per sample, Duration: ${duration.toFixed(2)} seconds<br>`;
+                // spanElement.innerHTML += `Start Offset: ${startOffset}, End Offset: ${endOffset} (${formatBytes(endOffset - startOffset) + " MB"})<br>`;
+                // spanElement.innerHTML += `Array16bit address${num}: ${array32BitAddress}<br>`;
+
+                // เพิ่ม data-file-key attribute เพื่อให้เราสามารถจับคู่กับไฟล์นี้ในภายหลัง
+                spanElement.setAttribute('data-file-key', fileKey);
+
+                if (detailsContainer.firstChild) {
+                    detailsContainer.insertBefore(spanElement, detailsContainer.firstChild);
+                } else {
+                    detailsContainer.appendChild(spanElement);
+                }
+
+                displayedFiles.add(fileKey);
+
+            }
+
+        }
+
+        function updateProgress(totalSize) {
+            const progressContainer = document.getElementById('progress-bar');
+            const fileSizeContainer = document.getElementById('fileSize');
+
+            if (pcmData !== null && pcmData !== undefined && totalSize !== 0) {
+                let pcmData_per = (totalSize*2 / (MAX_SIZE_MB * 1024 * 1024)) * 100;
+                console.log("totalSize", totalSize*2);
+                progressContainer.style.width = `${pcmData_per.toFixed(2)}%`;
+                progressContainer.innerHTML = `${pcmData_per.toFixed(2)}%`;
+
+                fileSizeContainer.innerHTML = `Combined bin file size: ${formatBytes(totalSize*2) + " MB"}`;
+            } else {
+                // กรณีที่ไม่มีข้อมูล
+            }
+            console.log("pcmData = " + pcmData);
+            console.log(progressContainer);
+        }
+
+
+        // Function to format bytes into human-readable format
+        function formatBytes(bytes, decimals = 2) {
+            if (bytes === 0) return '0 Bytes';
+
+            const k = 1024;
+            const dm = decimals < 0 ? 0 : decimals;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+        }
+        async function processFile(index, files, channels, totalSize) {
+            if (index < files.length) {
+                const file = files[index];
+                const reader = new FileReader();
+
+                reader.onload = async function (e) {
+                    const arrayBuffer = e.target.result;
+                    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
+                    audioContext.decodeAudioData(arrayBuffer, async function (buffer) {
+                        const bitsPerSample = await calculateBitsPerSample(file);
+                        const convertedBuffer = convertBitDepth(buffer, bitsPerSample);
+
+                        channels.push(convertedBuffer.getChannelData(0));
+
+                        const startOffset = totalSize;
+                        const endOffset = startOffset + convertedBuffer.length;
+
+                        fileOffsets.push(startOffset);
+                        fileNames.push(file.name);
+
+                        displayFileDetails(file, convertedBuffer, startOffset, endOffset, bitsPerSample);
+
+                        await processFile(index + 1, files, channels, totalSize + convertedBuffer.length);
+                        progress = Math.round(((totalSize + convertedBuffer.length) / totalSize) * 100);
+                        updateProgress(totalSize + convertedBuffer.length);
+
+                    });
+                };
+
+                reader.readAsArrayBuffer(file);
+            } else {
+                if (files.length > 0) {
+                    await combineAndExport(channels, totalSize);
+                } else {
+                    displayFileSize(0);
+                    const filePositions = calculateFilePositions(channels, totalSize);
+                    // displayBinHeaderDetails(filePositions);
+
+                    const progressContainer = document.getElementById('progress');
+                    const downloadLink = document.getElementById('downloadLink');
+                    progressContainer.innerHTML = `Progress: 0.00%`;
+                    downloadLink.style.display = 'none';
+
+                    location.reload();
+                }
+                resetGlobalVariables();
+            }
+        }
+
+        function resetGlobalVariables() {
+            fileOffsets = [];
+            fileNames = [];
+            progress = 0;
+            uploadedFiles = 0;
+        }
+
+
+
+        function convertBitDepth(buffer, targetBitsPerSample) {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const originalBitsPerSample = buffer.sampleRate;
+            const sourceData = buffer.getChannelData(0);
+            const sourceBitsPerSample = originalBitsPerSample;
+            const targetData = new Float32Array(sourceData.length);
+
+            for (let i = 0; i < sourceData.length; i++) {
+                // ทำการปรับความละเอียดของข้อมูลเสียง
+                const sourceSample = sourceData[i];
+                const targetSample = sourceSample * (Math.pow(2, targetBitsPerSample - 1));
+                targetData[i] = targetSample/3; // เอาค่าความดังมาหาร 3
+            }
+
+            const newBuffer = audioContext.createBuffer(1, sourceData.length, audioContext.sampleRate);
+            newBuffer.getChannelData(0).set(targetData);
+
+            return newBuffer;
+        }
+
+        function processWavFiles() {
+            const pond = FilePond.getInstance(document.getElementById('filepond'));
+            const files = pond.getFiles().map(file => file.file);
+
+            if (files.length > 0) {
+                const channels = [];
+                const totalSize = 0;
+
+                processFile(0, files, channels, totalSize);
+            }
+        }
+
+        function displayFileSize(size) {
+            const fileSizeContainer = document.getElementById('fileSize');
+            fileSizeContainer.innerHTML = `Combined bin file size: ${formatBytes(size) + " MB"}`;
+        }
+
+        let alertShown = false;  // เพิ่มตัวแปรเพื่อตรวจสอบว่า alert ได้ถูกแสดงแล้วหรือไม่
+
+        function combineAndExport(channels, totalSize) {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const audioBuffer = audioContext.createBuffer(channels.length, totalSize || 1, audioContext.sampleRate);
+
+            // สร้าง pcmData โดยให้มีขนาดเท่ากับ totalSize * channels.length
+            const pcmData = new Int16Array(totalSize + 96);
+
+            // console.log(" pcmData = new Int16Array  %d ",channels.length);
+            console.log(" pcmData = new totalSize  %d ", totalSize);
+
+            // สร้าง binArray ให้มีขนาดเท่ากับ totalSize * channels.length * 2 (Int16Array)
+            // const binArray = new Int16Array(totalSize * channels.length * 2);
+
+            let TotalExportSize = 96; // offset header 48 byte is int32x12
+
+
+            for (let i = channels.length - 1; i > -1; i--) {
+
+
+                pcmData.set(channels[i], TotalExportSize);
+                TotalExportSize += channels[i].length;
+
+                console.log(" channels[x].length  %d ", channels[i].length);
+
+                console.log(" x =  %d ", i);
+
+                // นำข้อมูลใส่ใน audioBuffer
+                audioBuffer.copyToChannel(channels[i], i);
+
+
+             
+            }
+
+
+           
+                // +96 or + 192
+                if(a1 != 0){a1c = (a1*2)+192;}
+                if(a2 != 0){a2c = (a2*2)+192;}
+                if(a3 != 0){a3c = (a3*2)+192;}
+                if(a4 != 0){a4c = (a4*2)+192;}
+                if(a5 != 0){a5c = (a5*2)+192;}
+                if(a6 != 0){a6c = (a6*2)+192;}
+                if(a7 != 0){a7c = (a7*2)+192;}
+                if(a8 != 0){a8c = (a8*2)+192;}
+                if(a9 != 0){a9c = (a9*2)+192;}
+                if(a10 != 0){a10c = (a10*2)+192;}
+                if(a11 != 0){a11c = (a111*2)+192;}
+                if(a12 != 0){a12c = (a12*2)+96;}
+
+                // a12 = 96+(a0c*2)+(a1)+(a2)+(a3)+(a4)+(a5)+(a6)+(a7)+(a8)+(a9)+(a10)+(a11);
+
+                
+
+
+            pcmData[0] = a1c;
+            pcmData[1] = a1c >> 16;
+            pcmData[2] = a2c;
+            pcmData[3] = a2c >> 16;
+            pcmData[4] = a3c;
+            pcmData[5] = a3c >> 16;
+            pcmData[6] = a4c;
+            pcmData[7] = a4c >> 16;
+            pcmData[8] = a5c;
+            pcmData[9] = a5c >> 16;
+            pcmData[10] = a6c;
+            pcmData[11] = a6c >> 16;
+
+            pcmData[12] = a7c;
+            pcmData[13] = a7c >> 16;
+            pcmData[14] = a8c;
+            pcmData[15] = a8c >> 16;
+            pcmData[16] = a9c;
+            pcmData[17] = a9c >> 16;
+            pcmData[18] = a10c;
+            pcmData[19] = a10c >> 16;
+            pcmData[20] = a11c;
+            pcmData[21] = a11c >> 16;
+            pcmData[22] = a12c;
+            pcmData[23] = a12c >> 16;
+            pcmData[24] = 0xffff;
+            pcmData[25] = 0xffff;
+            pcmData[26] = 0xffff;
+            pcmData[27] = 0xffff;
+            pcmData[28] = 0xffff;
+            pcmData[29] = 0xffff;
+            pcmData[30] = 0xffff;
+            pcmData[31] = 0xffff;
+
+            pcmData[32] = 0x00;
+            pcmData[33] = 0x00;
+            pcmData[34] = 0x00;
+            pcmData[35] = 0x00;
+            pcmData[36] = 0x00;
+            pcmData[37] = 0x00;
+            pcmData[38] = 0x00;
+            pcmData[39] = 0x00;
+            pcmData[40] = 0x00;
+            pcmData[41] = 0x00;
+            pcmData[42] = 0x00;
+            pcmData[43] = 0x00;
+            pcmData[44] = 0x00;
+            pcmData[45] = 0x00;
+            pcmData[46] = 0x00;
+            pcmData[47] = 0x00;
+
+
+
+
+
+            const binBlob = new Blob([new Int16Array(pcmData)], { type: 'application/octet-stream' });
+
+
+            // แก้ไขตำแหน่งไฟล์ที่ถูกเรียกใช้ displayBinHeaderDetails
+            const filePositions = [a1c, a2c, a3c, a4c, a5c, a6c, a7c, a8c, a9c, a10c, a11c, a12c];
+            // displayBinHeaderDetails(filePositions);
+
+            const totalBytes = 4 * 1024 * 1024; // 4 MB in bytes
+
+            if ((pcmData.length*2) > totalBytes && !alertShown) {
+                alert('Combined bin file exceeds 4MB limit. Please reduce the input WAV files.');
+                alertShown = true;  // ตั้งค่าตัวแปรเพื่อไม่ให้แสดง alert อีกครั้ง
+
+                // เปลี่ยนสีของ progress-bar เป็นแดง
+                const progressBar = document.getElementById('progress-bar');
+                console.log("progressBar " + progressBar);
+                progressBar.classList.add('bg-danger');
+            } else {
+                // ถ้าไม่เกิน 4MB ให้เปลี่ยนสี progress-bar เป็นสีเขียว
+                const progressBar = document.getElementById('progress-bar');
+                progressBar.classList.add('bg-success');
+
+                const binURL = URL.createObjectURL(binBlob);
+                const downloadLink = document.getElementById('downloadLink');
+
+                if ((pcmData.length*2) > 0) {
+                    downloadLink.href = binURL;
+                    downloadLink.download = 'mon2wav.bin';
+                    downloadLink.style.display = binBlob.size <= totalBytes ? '' : 'none';  // ซ่อนปุ่ม Download ถ้าเกินขนาด
+                } else {
+                    // ถ้าไม่มีข้อมูลชักอัน ซ่อนลิงก์
+                    downloadLink.style.display = 'none';
+                }
+
+                // ใช้ binBlob.size แทนที่ fileSizeContainer.innerHTML
+                displayFileSize(binBlob.size);
+            }
+
+
+        }
+
+
+        function displayBinHeaderDetails(filePositions) {
+            const headerContainer = document.getElementById('binHeaderDetails');
+
+            let headerDetails = 'Bin File Header:';
+            filePositions.forEach((position, i) => {
+                const array32BitAddress = position; // ให้ array32BitAddress เป็นค่าของ position
+                headerDetails += ` ${i + 1}) ${array32BitAddress} |`;
+            });
+
+            headerContainer.innerHTML = headerDetails;
+
+        }
+
+
+
+        function calculateFilePositions(channels, totalSize) {
+            const filePositions = Array.from({ length: channels.length }, (_, i) => {
+                const startOffset = i > 0 ? filePositions[i - 1] : 0;
+                return startOffset + channels[i].length; // ไม่ต้องแปลงเป็น 32-bit address
+            });
+
+            return filePositions;
+        }
+
+        // เพิ่มส่วนนี้เพื่อแปลงไฟล์เสียงที่ถูกเลือกมาเป็น array buffer
+        async function convertSelectedFileToArrayBuffer(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = function (event) {
+                    resolve(event.target.result);
+                };
+                reader.onerror = function (event) {
+                    reject(event.target.error);
+                };
+                reader.readAsArrayBuffer(file);
+            });
+        }
+
+        function formatBytes(bytes) {
+            const kb = bytes / 1024;
+            const mb = kb / 1024;
+            return mb.toFixed(2);
+        }
+    </script>
+
+          
+  </section><!-- End mon -->
+
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <h3>(o) MON 2 : Soundscape Machine</h3>
+      <p>ม่อนคำ คราฟ แอนด์ ครีเอทีฟ เชียงใหม่ ประเทศไทย</p>
+      <div class="social-links">
+        <a href="https://www.instagram.com/monkhum.cc/" class="instagram"><i class="bx bxl-instagram"></i></a>
+      </div>
+      <div class="copyright">
+        &copy; Copyright <strong><span>MonkhumCC</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+       
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  
+
+</body>
+
+</html>
